@@ -50,7 +50,9 @@
             color: #ccc;
         }
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080?text=Elegant+Salon+Interior');
+            background-size: cover;
+            background-position: center;
             color: #fff;
             padding: 8rem 2rem 4rem;
             text-align: center;
@@ -58,6 +60,21 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.2));
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         .hero h1 {
             font-size: 4rem;
@@ -218,14 +235,16 @@
     </header>
 
     <section class="hero">
-        <h1>Stay Gorgeous</h1>
-        <p>Experience the best in hair care and styling at Re Style</p>
-        <div class="rating">
-            <span class="stars">★★★★★</span> 4.9 (based on 28 reviews)
-        </div>
-        <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Book Appointment</a>
-            <a href="#services" class="btn">Our Services</a>
+        <div class="hero-content">
+            <h1>Stay Gorgeous</h1>
+            <p>Experience the best in hair care and styling at Re Style</p>
+            <div class="rating">
+                <span class="stars">★★★★★</span> 4.9 (based on 28 reviews)
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                <a href="#services" class="btn">Our Services</a>
+            </div>
         </div>
     </section>
 
