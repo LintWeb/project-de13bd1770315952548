@@ -11,46 +11,54 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
         header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
             background-color: #000;
             color: #fff;
-            padding: 1rem;
-            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         .logo {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
         }
-        .contact-info {
+        nav ul {
+            list-style: none;
             display: flex;
-            justify-content: center;
             gap: 2rem;
-            margin-top: 1rem;
         }
-        .contact-info div {
-            display: flex;
-            align-items: center;
-        }
-        .contact-info i {
-            margin-right: 0.5rem;
-        }
-        hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400?text=Salon+Interior');
-            background-size: cover;
-            background-position: center;
+        nav a {
             color: #fff;
-            padding: 4rem 2rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #ccc;
+        }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 8rem 2rem 4rem;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            font-weight: 300;
         }
         .hero p {
             font-size: 1.2rem;
@@ -58,10 +66,35 @@
         }
         .rating {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
         .stars {
             color: #ffd700;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            background-color: #fff;
+            color: #333;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+        .btn-primary {
+            background-color: #ffd700;
+            color: #000;
+        }
+        .btn-primary:hover {
+            background-color: #e6c300;
         }
         section {
             padding: 4rem 2rem;
@@ -76,6 +109,7 @@
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: #000;
+            font-weight: 300;
         }
         .about p {
             text-align: center;
@@ -89,11 +123,14 @@
             gap: 2rem;
         }
         .service-card {
-            background: #fff;
+            background: #f9f9f9;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
         }
         .service-card h3 {
             margin-bottom: 1rem;
@@ -105,29 +142,61 @@
             gap: 2rem;
         }
         .contact-card {
-            background: #fff;
+            background: #f9f9f9;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
         }
         .contact-card h3 {
             margin-bottom: 1rem;
             color: #000;
         }
+        .social-links {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .social-links a {
+            margin: 0 1rem;
+            color: #333;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
         footer {
             background-color: #000;
             color: #fff;
-            text-align: center;
             padding: 2rem;
+            text-align: center;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
         }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .contact-info {
+            header {
                 flex-direction: column;
+                padding: 1rem;
+            }
+            nav ul {
+                margin-top: 1rem;
                 gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -135,27 +204,33 @@
 <body>
     <header>
         <div class="logo">Re Style</div>
-        <div class="contact-info">
-            <div><i>📞</i> 01828-661444</div>
-            <div><i>📍</i> Sekender Plaza, 815 CDA Ave, Chattogram 4000</div>
-            <div><i>🕒</i> Open Every Day 10 AM–9 PM</div>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
-        <h1>Welcome to Re Style Hair Salon</h1>
-        <p>Your premier destination for professional hair care and styling</p>
+        <h1>Stay Gorgeous</h1>
+        <p>Experience the best in hair care and styling at Re Style</p>
         <div class="rating">
             <span class="stars">★★★★★</span> 4.9 (based on 28 reviews)
         </div>
+        <div class="hero-buttons">
+            <a href="tel:01828-661444" class="btn btn-primary">Book Appointment</a>
+            <a href="#services" class="btn">Our Services</a>
+        </div>
     </section>
 
-    <section class="about">
+    <section id="about" class="about">
         <h2>About Us</h2>
         <p>At Re Style Hair Salon, we are dedicated to providing exceptional hair care services in a relaxing and welcoming environment. Our team of skilled stylists uses the latest techniques and premium products to help you achieve the perfect look. Whether you're looking for a complete makeover or regular maintenance, we're here to make you feel beautiful and confident.</p>
     </section>
 
-    <section class="services">
+    <section id="services" class="services">
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -185,7 +260,7 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
         <h2>Contact Information</h2>
         <div class="contact-grid">
             <div class="contact-card">
@@ -203,7 +278,26 @@
         </div>
     </section>
 
+    <div class="social-links">
+        <a href="#" title="Instagram">📷 Instagram</a>
+        <a href="#" title="Facebook">📘 Facebook</a>
+        <a href="#" title="YouTube">📺 YouTube</a>
+    </div>
+
     <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Re Style Hair Salon</h4>
+                <p>Sekender Plaza, 815 CDA Ave, Chattogram 4000</p>
+                <p>01828-661444</p>
+                <p>Open Every Day 10 AM – 9 PM</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#services">Our Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
         <p>&copy; 2024 Re Style Hair Salon. All rights reserved.</p>
     </footer>
 </body>
