@@ -39,6 +39,28 @@
         .yellow {
             color: #ffd700;
         }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
+        }
+        .fade-in.delay-1 {
+            animation-delay: 0.2s;
+        }
+        .fade-in.delay-2 {
+            animation-delay: 0.4s;
+        }
+        .fade-in.delay-3 {
+            animation-delay: 0.6s;
+        }
         nav ul {
             list-style: none;
             display: flex;
@@ -286,12 +308,12 @@
     <section class="hero">
         <div class="hero-image"></div>
         <div class="hero-content">
-            <h1>Stay Gorgeous</h1>
-            <p>Experience the best in hair care and styling at Re Style</p>
-            <div class="rating">
+            <h1 class="fade-in">Stay Gorgeous</h1>
+            <p class="fade-in delay-1">Experience the best in hair care and styling at Re Style</p>
+            <div class="rating fade-in delay-2">
                 <span class="stars">★★★★★</span> 4.9 (based on 28 reviews)
             </div>
-            <div class="hero-buttons">
+            <div class="hero-buttons fade-in delay-3">
                 <a href="#contact" class="btn btn-primary">Book Appointment</a>
                 <a href="#services" class="btn">Our Services</a>
             </div>
@@ -299,13 +321,13 @@
     </section>
 
     <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>At Re Style Hair Salon, we are dedicated to providing exceptional hair care services in a relaxing and welcoming environment. Our team of skilled stylists uses the latest techniques and premium products to help you achieve the perfect look. Whether you're looking for a complete makeover or regular maintenance, we're here to make you feel beautiful and confident.</p>
+        <h2 class="fade-in">About Us</h2>
+        <p class="fade-in delay-1">At Re Style Hair Salon, we are dedicated to providing exceptional hair care services in a relaxing and welcoming environment. Our team of skilled stylists uses the latest techniques and premium products to help you achieve the perfect look. Whether you're looking for a complete makeover or regular maintenance, we're here to make you feel beautiful and confident.</p>
     </section>
 
     <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
+        <h2 class="fade-in">Our Services</h2>
+        <div class="services-grid fade-in delay-1">
             <div class="service-card">
                 <h3>Hair Cutting & Styling</h3>
                 <p>Professional cuts and styling for all hair types and lengths.</p>
@@ -334,8 +356,8 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact Information</h2>
-        <div class="contact-grid">
+        <h2 class="fade-in">Contact Information</h2>
+        <div class="contact-grid fade-in delay-1">
             <div class="contact-card">
                 <h3>Address</h3>
                 <p>Re Style<br>Sekender Plaza<br>815 CDA Ave<br>Chattogram 4000</p>
@@ -349,7 +371,7 @@
                 <p>Open Every Day<br>10 AM – 9 PM</p>
             </div>
         </div>
-        <div class="map">
+        <div class="map fade-in delay-2">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24637.669019165838!2d91.7978622!3d22.3579742!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd997d9c48d01%3A0x893fb2247d24cd2d!2sRe%20Style!5e1!3m2!1sen!2sbd!4v1770316554107!5m2!1sen!2sbd" width="100%" height="450" style="border:0; max-width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
