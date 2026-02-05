@@ -50,31 +50,39 @@
             color: #ccc;
         }
         .hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://media.istockphoto.com/id/872361244/photo/man-getting-his-beard-trimmed-with-electric-razor.jpg?s=612x612&w=0&k=20&c=_IjZcrY0Gp-2z6AWTQederZCA9BLdl-iqWkH0hGMTgg=');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+            padding: 4rem 2rem;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.2));
-            pointer-events: none;
+        .hero-image {
+            flex: 1;
+            background: url('https://media.istockphoto.com/id/872361244/photo/man-getting-his-beard-trimmed-with-electric-razor.jpg?s=612x612&w=0&k=20&c=_IjZcrY0Gp-2z6AWTQederZCA9BLdl-iqWkH0hGMTgg=') center/cover no-repeat;
+            height: 500px;
+            border-radius: 10px;
+            margin-right: 2rem;
         }
         .hero-content {
-            position: relative;
-            z-index: 1;
+            flex: 1;
+            text-align: left;
+            color: #333;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .rating {
+            margin-bottom: 2rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
         }
         .hero h1 {
             font-size: 4rem;
@@ -218,6 +226,31 @@
                 margin-top: 1rem;
                 gap: 1rem;
             }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-image {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -244,6 +277,7 @@
     </header>
 
     <section class="hero">
+        <div class="hero-image"></div>
         <div class="hero-content">
             <h1>Stay Gorgeous</h1>
             <p>Experience the best in hair care and styling at Re Style</p>
